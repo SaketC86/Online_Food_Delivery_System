@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login - FlavorFlow</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-overlay {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#b3c5ff",
+                      "tertiary-fixed-dim": "#c4c7c9",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface": "#111c2d",
+                      "primary": "#0050cb",
+                      "on-tertiary-container": "#f6f8fa",
+                      "primary-fixed-dim": "#b3c5ff",
+                      "tertiary-container": "#6f7274",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#ecf1ff",
+                      "secondary-container": "#dfe0e0",
+                      "surface-variant": "#d8e3fb",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#c6c6c7",
+                      "outline-variant": "#c2c6d8",
+                      "on-secondary-container": "#616363",
+                      "tertiary-fixed": "#e0e3e5",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "on-secondary": "#ffffff",
+                      "secondary": "#5d5f5f",
+                      "on-tertiary-fixed-variant": "#444749",
+                      "surface-container-highest": "#d8e3fb",
+                      "tertiary": "#565a5b",
+                      "on-secondary-fixed-variant": "#454747",
+                      "secondary-fixed": "#e2e2e2",
+                      "on-primary-fixed": "#001849",
+                      "surface-bright": "#f9f9ff",
+                      "on-background": "#111c2d",
+                      "on-primary-fixed-variant": "#003fa4",
+                      "surface-container": "#e7eeff",
+                      "background": "#f9f9ff",
+                      "outline": "#727687",
+                      "primary-container": "#0066ff",
+                      "on-tertiary-fixed": "#191c1e",
+                      "on-primary-container": "#f8f7ff",
+                      "surface-dim": "#cfdaf2",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed": "#dae1ff",
+                      "surface-tint": "#0054d6",
+                      "surface-container-low": "#f0f3ff",
+                      "on-error-container": "#93000a",
+                      "surface": "#f9f9ff",
+                      "inverse-surface": "#263143",
+                      "error-container": "#ffdad6",
+                      "on-surface-variant": "#424656",
+                      "surface-container-high": "#dee8ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "lg": "32px",
+                      "xs": "8px",
+                      "margin-mobile": "16px",
+                      "xl": "48px",
+                      "md": "24px",
+                      "margin-desktop": "48px",
+                      "sm": "16px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-md": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md overflow-hidden">
+<!-- Background Layer with Food Image Overlay -->
+<div class="fixed inset-0 z-0 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center scale-105 filter blur-[2px]" data-alt="A high-end, professional food photography shot featuring gourmet ingredients like fresh basil, vine-ripened tomatoes, and artisanal pasta scattered elegantly on a clean slate surface. The lighting is soft and natural, emphasizing textures and vibrant colors. The overall aesthetic is clean, corporate, and premium, with a slight Gaussian blur applied to ensure text readability in the foreground. The color palette emphasizes deep greens, rich reds, and soft grays." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCUwpod7X1Xsyal4nVwAh1iJUdls16jxIml9cigkMnOJyHhQUv2HyNBH1igwsXIHpuyLn2Jx-fT3XcxNk5sSFxBid7Yao6CBr5FJzCtPYZ3E1lN7K1u3SZFTXqSuwa2lMeyhs1VLyH9QKIJGMBu-AgbU6LFCojbG69Rp2OjpdV4wW_s4oTcIRMnvAFweIpZR8WYw8ZPb3ZMohcMcS-1bDTW-5Ll1qsx2uvhCuepjhmZcMexZEVwwUoirQYdoHRSpnn7f2P6GL75epqN')"></div>
+<div class="absolute inset-0 bg-on-surface/10"></div>
+</div>
+<!-- Main Content Canvas -->
+<main class="relative z-10 flex min-h-screen items-center justify-center p-gutter">
+<!-- Login Card -->
+<div class="w-full max-w-[440px] bg-surface-container-lowest rounded-xl shadow-[0_24px_48px_rgba(0,0,0,0.06)] border border-outline-variant overflow-hidden flex flex-col">
+<!-- Brand Header -->
+<div class="p-lg pb-md text-center">
+<div class="inline-flex items-center justify-center w-12 h-12 bg-primary-container text-on-primary-container rounded-lg mb-sm">
+<span class="material-symbols-outlined text-headline-md" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">FlavorFlow</h1>
+<p class="font-body-md text-on-surface-variant mt-xs">Sign in to your professional account</p>
+</div>
+<!-- Login Form -->
+<form class="px-lg pb-lg space-y-md" id="loginForm">
+<!-- Identifier Field -->
+<div class="space-y-base">
+<label class="font-label-md text-label-md text-on-surface-variant block" for="identifier">Username or Email</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline">alternate_email</span>
+<input class="w-full pl-[44px] pr-sm py-sm rounded-lg border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline/50" id="identifier" name="identifier" placeholder="e.g. alex.smith@example.com" required="" type="text"/>
+</div>
+</div>
+<!-- Phone Field -->
+<div class="space-y-base">
+<label class="font-label-md text-label-md text-on-surface-variant block" for="phone">Phone Number</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline">phone</span>
+<input class="w-full pl-[44px] pr-sm py-sm rounded-lg border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline/50" id="phone" name="phone" placeholder="+1 (555) 000-0000" required="" type="tel"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-base">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface-variant" for="password">Password</label>
+<a class="text-label-sm font-label-sm text-primary hover:underline" href="#">Forgot?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline">lock</span>
+<input class="w-full pl-[44px] pr-sm py-sm rounded-lg border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-outline/50" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute right-sm top-1/2 -translate-y-1/2 text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Options -->
+<div class="flex items-center gap-xs">
+<input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" id="remember" type="checkbox"/>
+<label class="font-label-md text-label-md text-on-surface-variant cursor-pointer" for="remember">Remember this device</label>
+</div>
+<!-- Submit Button -->
+<button class="w-full bg-primary-container text-on-primary-container font-label-md text-label-md py-sm rounded-lg shadow-sm hover:brightness-110 active:scale-[0.98] transition-all duration-150 flex items-center justify-center gap-xs" type="submit">
+<span>Log In to Dashboard</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<!-- Secure Footer -->
+<div class="pt-sm flex flex-col items-center gap-xs border-t border-outline-variant/30 mt-md">
+<div class="flex items-center gap-base text-outline text-label-sm">
+<span class="material-symbols-outlined text-[14px]">verified_user</span>
+<span>Secure End-to-End Encryption</span>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">
+                        Don't have an account? 
+                        <a class="text-primary font-bold hover:underline" href="#">Register</a>
+</p>
+</div>
+</form>
+</div>
+</main>
+<!-- Footer Meta -->
+<footer class="fixed bottom-0 w-full px-lg py-md flex justify-between items-center text-outline text-label-sm z-10 hidden md:flex">
+<p>© 2024 FlavorFlow Logistics. All rights reserved.</p>
+<div class="flex gap-md">
+<a class="hover:text-on-surface transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-on-surface transition-colors" href="#">Support</a>
+<a class="hover:text-on-surface transition-colors" href="#">Global Status</a>
+</div>
+</footer>
+<script>
+        // Simple Interaction Logic
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalContent = btn.innerHTML;
+            
+            // Visual feedback for "Secure" login
+            btn.disabled = true;
+            btn.innerHTML = `
+                <svg class="animate-spin h-5 w-5 text-on-primary-container" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span>Authenticating...</span>
+            `;
+
+            setTimeout(() => {
+                btn.innerHTML = `
+                    <span class="material-symbols-outlined text-[20px]">check_circle</span>
+                    <span>Access Granted</span>
+                `;
+                btn.classList.replace('bg-primary-container', 'bg-secondary');
+            }, 1500);
+        });
+
+        // Toggle Password Visibility
+        const togglePass = document.querySelector('button[type="button"]');
+        const passInput = document.getElementById('password');
+        togglePass.addEventListener('click', () => {
+            const isPass = passInput.type === 'password';
+            passInput.type = isPass ? 'text' : 'password';
+            togglePass.querySelector('span').textContent = isPass ? 'visibility_off' : 'visibility';
+        });
+    </script>
+</body></html>

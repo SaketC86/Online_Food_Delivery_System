@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Tracking | FlavorFlow</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+        }
+        .map-gradient-overlay {
+            background: linear-gradient(to bottom, rgba(249, 249, 255, 0) 0%, rgba(249, 249, 255, 0.8) 100%);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#b3c5ff",
+                      "tertiary-fixed-dim": "#c4c7c9",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface": "#111c2d",
+                      "primary": "#0050cb",
+                      "on-tertiary-container": "#f6f8fa",
+                      "primary-fixed-dim": "#b3c5ff",
+                      "tertiary-container": "#6f7274",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#ecf1ff",
+                      "secondary-container": "#dfe0e0",
+                      "surface-variant": "#d8e3fb",
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#c6c6c7",
+                      "outline-variant": "#c2c6d8",
+                      "on-secondary-container": "#616363",
+                      "tertiary-fixed": "#e0e3e5",
+                      "on-secondary-fixed": "#1a1c1c",
+                      "on-secondary": "#ffffff",
+                      "secondary": "#5d5f5f",
+                      "on-tertiary-fixed-variant": "#444749",
+                      "surface-container-highest": "#d8e3fb",
+                      "tertiary": "#565a5b",
+                      "on-secondary-fixed-variant": "#454747",
+                      "secondary-fixed": "#e2e2e2",
+                      "on-primary-fixed": "#001849",
+                      "surface-bright": "#f9f9ff",
+                      "on-background": "#111c2d",
+                      "on-primary-fixed-variant": "#003fa4",
+                      "surface-container": "#e7eeff",
+                      "background": "#f9f9ff",
+                      "outline": "#727687",
+                      "primary-container": "#0066ff",
+                      "on-tertiary-fixed": "#191c1e",
+                      "on-primary-container": "#f8f7ff",
+                      "surface-dim": "#cfdaf2",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed": "#dae1ff",
+                      "surface-tint": "#0054d6",
+                      "surface-container-low": "#f0f3ff",
+                      "on-error-container": "#93000a",
+                      "surface": "#f9f9ff",
+                      "inverse-surface": "#263143",
+                      "error-container": "#ffdad6",
+                      "on-surface-variant": "#424656",
+                      "surface-container-high": "#dee8ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "lg": "32px",
+                      "xs": "8px",
+                      "margin-mobile": "16px",
+                      "xl": "48px",
+                      "md": "24px",
+                      "margin-desktop": "48px",
+                      "sm": "16px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-md": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="w-full top-0 sticky bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none z-50">
+<div class="flex justify-between items-center px-lg py-sm max-w-7xl mx-auto w-full">
+<div class="flex items-center gap-md">
+<span class="text-headline-md font-headline-md text-primary dark:text-inverse-primary">FlavorFlow</span>
+<nav class="hidden md:flex gap-sm">
+<a class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:bg-surface-container dark:hover:bg-on-surface-variant px-sm py-xs rounded-lg transition-colors" href="#">Home</a>
+<a class="text-primary dark:text-inverse-primary font-semibold border-b-2 border-primary font-body-md text-body-md px-sm py-xs" href="#">Orders</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-body-md text-body-md hover:bg-surface-container dark:hover:bg-on-surface-variant px-sm py-xs rounded-lg transition-colors" href="#">Favorites</a>
+</nav>
+</div>
+<div class="flex items-center gap-sm">
+<div class="hidden sm:flex items-center bg-surface-container px-sm py-xs rounded-full">
+<span class="material-symbols-outlined text-outline text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-md px-xs w-32 md:w-48" placeholder="Search orders..." type="text"/>
+</div>
+<div class="flex gap-xs">
+<button class="p-xs rounded-full hover:bg-surface-container transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+</button>
+<button class="p-xs rounded-full hover:bg-surface-container transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary" data-icon="shopping_cart">shopping_cart</span>
+</button>
+<button class="p-xs rounded-full hover:bg-surface-container transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-gutter py-md md:py-lg grid grid-cols-1 lg:grid-cols-12 gap-lg h-[calc(100vh-80px)] overflow-hidden">
+<!-- Left: Map Component (Bento Item 1) -->
+<div class="lg:col-span-8 flex flex-col gap-sm">
+<div class="flex justify-between items-end mb-xs">
+<div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface">Tracking Order #FL-9823</h1>
+<p class="text-body-md text-on-surface-variant">Arriving in <span class="text-primary font-semibold">12 mins</span></p>
+</div>
+<div class="hidden md:block">
+<span class="inline-flex items-center px-sm py-xs rounded-full bg-primary-container text-on-primary-container text-label-sm gap-xs">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">electric_moped</span>
+                        Out for Delivery
+                    </span>
+</div>
+</div>
+<div class="relative w-full h-[400px] lg:h-full bg-surface-container-highest rounded-xl overflow-hidden border border-outline-variant shadow-md">
+<!-- Map Placeholder -->
+<div class="absolute inset-0 w-full h-full" data-alt="A detailed digital map interface with a premium blue aesthetic showing a delivery route through a modern city grid. The map features a soft glowing blue polyline indicating the route from a restaurant icon to a home destination. A small 3D-styled delivery moped icon is positioned midway on the blue path. The map style is minimalist with corporate blue and gray tones, emphasizing safety and logistics efficiency." data-location="New York City" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBCgVLBfBck8oxRy0GXzeLgP3Gcide-qIaHZvdIvKIBsGkGvBsuzDVa6A0z1AL0zB5zIHznbjsscBrPQbsoXuKpOZkGddmJJie4S6uMUb_DxkAT59_UK0wauoPaztGHtorXboXAP_MLvRk_Pqs_M6wSksRhUP5Mz3hnd7HSOffWcMFDUC1sSFMuz4Says9QXLIk1EnuNwfZHQcA-wlJoZUNg5ngkhrzsYTXRCFXAE2zD7XLjXUKsdQT84QoBUkJwuHMSzhvFFpbNlHl')"></div>
+<!-- Floating Map Controls -->
+<div class="absolute right-sm top-sm flex flex-col gap-xs">
+<button class="w-10 h-10 bg-surface rounded-lg shadow-sm flex items-center justify-center hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface">add</span>
+</button>
+<button class="w-10 h-10 bg-surface rounded-lg shadow-sm flex items-center justify-center hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface">remove</span>
+</button>
+<button class="w-10 h-10 bg-surface rounded-lg shadow-sm flex items-center justify-center hover:bg-surface-container-high transition-colors text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">my_location</span>
+</button>
+</div>
+<!-- Live ETA Tag on Map -->
+<div class="absolute left-1/2 top-1/3 -translate-x-1/2 bg-surface px-md py-xs rounded-full shadow-lg border border-primary/20 flex items-center gap-sm">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-label-md font-semibold text-on-surface">Driver is 2.4 miles away</span>
+</div>
+</div>
+</div>
+<!-- Right: Timeline & Info (Bento Item 2) -->
+<div class="lg:col-span-4 flex flex-col gap-md overflow-y-auto custom-scrollbar pr-xs">
+<!-- Timeline Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm">
+<h3 class="text-headline-md font-headline-md text-on-surface mb-md">Delivery Status</h3>
+<div class="relative flex flex-col gap-xl ml-xs">
+<!-- Progress Line -->
+<div class="absolute left-[11px] top-2 bottom-2 w-[2px] bg-outline-variant">
+<!-- Blue Progress Indicator -->
+<div class="w-full h-2/3 bg-primary rounded-full"></div>
+</div>
+<!-- Timeline Item: Order Placed -->
+<div class="flex gap-md relative">
+<div class="z-10 w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[16px]">check</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-md font-semibold text-on-surface">Order Placed</span>
+<span class="text-label-sm text-on-surface-variant">Your order has been received</span>
+<span class="text-label-sm text-outline mt-xs">11:30 AM</span>
+</div>
+</div>
+<!-- Timeline Item: Preparing -->
+<div class="flex gap-md relative">
+<div class="z-10 w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[16px]">check</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-md font-semibold text-on-surface">Preparing</span>
+<span class="text-label-sm text-on-surface-variant">The kitchen is crafting your meal</span>
+<span class="text-label-sm text-outline mt-xs">11:45 AM</span>
+</div>
+</div>
+<!-- Timeline Item: Out for Delivery -->
+<div class="flex gap-md relative">
+<div class="z-10 w-6 h-6 rounded-full bg-primary-container border-4 border-surface flex items-center justify-center">
+<div class="w-2 h-2 rounded-full bg-primary animate-ping"></div>
+</div>
+<div class="flex flex-col">
+<span class="text-label-md font-semibold text-primary">Out for Delivery</span>
+<span class="text-label-sm text-on-surface-variant">Marcus is on his way to you</span>
+<span class="text-label-sm text-primary font-medium mt-xs">Live Updates</span>
+</div>
+</div>
+<!-- Timeline Item: Delivered -->
+<div class="flex gap-md relative opacity-50">
+<div class="z-10 w-6 h-6 rounded-full bg-outline-variant flex items-center justify-center">
+<span class="w-2 h-2 rounded-full bg-surface"></span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-md font-semibold text-on-surface">Delivered</span>
+<span class="text-label-sm text-on-surface-variant">Enjoy your meal!</span>
+<span class="text-label-sm text-outline mt-xs">Expected: 12:15 PM</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Driver Info Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm mt-auto">
+<div class="flex items-center gap-md mb-md">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary-container p-base">
+<div class="w-full h-full rounded-full bg-cover bg-center" data-alt="A professional headshot of a friendly delivery courier in a corporate navy blue uniform. The lighting is bright and outdoor-focused, highlighting a reliable and approachable persona. The background is a soft-focus urban street during a clear day. The style is professional, polished, and fits a high-end logistics brand aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRTTJ_KcFq09T4WIafytIyPRoolnQsITBBwpUVAhtH0Ndo-rxyCVMTUXgEfAozgtiF6hUewZs5h9a_dzK0B85yg6pk4ZlIkutjYxycK0Onfs0UHXjeewkZBfJSPJQJ4-GGT5Wr2GALON8XCl4qIH6LcNq79GU60RikqOPw5G57S1nDPcCR3ydEx-uiLKhZdv8TZfhuGOzZxPJZ16GXfzZVYDIwo3nvEU-DF7fzckUthv4oYXz1jW2NYBIIPcemqiN15dpDohApl_g_')"></div>
+</div>
+<div>
+<div class="flex items-center gap-xs">
+<h4 class="text-label-md font-bold text-on-surface">Marcus Jensen</h4>
+<span class="inline-flex items-center text-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+                                4.9
+                            </span>
+</div>
+<p class="text-label-sm text-on-surface-variant">FlavorFlow Platinum Partner</p>
+<p class="text-label-sm font-semibold text-primary mt-base">Honda PCX 150 • NY-X82</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-sm">
+<button class="flex items-center justify-center gap-xs bg-primary text-white py-sm px-md rounded-lg font-label-md hover:bg-primary-container transition-all active:scale-95">
+<span class="material-symbols-outlined text-[20px]">call</span>
+                        Call
+                    </button>
+<button class="flex items-center justify-center gap-xs border border-primary text-primary py-sm px-md rounded-lg font-label-md hover:bg-surface-container-low transition-all active:scale-95">
+<span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+                        Message
+                    </button>
+</div>
+</div>
+<!-- Order Summary Mini-Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm mb-md">
+<div class="flex justify-between items-center mb-sm">
+<h5 class="text-label-md font-bold text-on-surface">Order Summary</h5>
+<button class="text-primary text-label-sm font-semibold">Details</button>
+</div>
+<div class="space-y-xs">
+<div class="flex justify-between text-label-sm">
+<span class="text-on-surface-variant">2x Wagyu Truffle Burger</span>
+<span class="text-on-surface font-medium">$48.00</span>
+</div>
+<div class="flex justify-between text-label-sm">
+<span class="text-on-surface-variant">1x Parmesan Truffle Fries</span>
+<span class="text-on-surface font-medium">$12.00</span>
+</div>
+<div class="pt-xs border-t border-outline-variant flex justify-between text-label-md font-bold text-on-surface">
+<span>Total</span>
+<span>$64.42</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Mobile Navigation Shell (Hidden on Web) -->
+<footer class="md:hidden fixed bottom-0 left-0 w-full bg-surface border-t border-outline-variant px-lg py-sm flex justify-around items-center z-50">
+<button class="flex flex-col items-center gap-base text-on-surface-variant">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px]">Home</span>
+</button>
+<button class="flex flex-col items-center gap-base text-primary font-semibold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span class="text-[10px]">Orders</span>
+</button>
+<button class="flex flex-col items-center gap-base text-on-surface-variant">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-[10px]">Favorites</span>
+</button>
+<button class="flex flex-col items-center gap-base text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px]">Profile</span>
+</button>
+</footer>
+<script>
+        // Micro-interaction for the timeline animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const timelineDots = document.querySelectorAll('.animate-ping');
+            // Logic for switching active state could be added here
+        });
+
+        // Simple mock for "contact" button interaction
+        const contactBtn = document.querySelector('button:contains("Call")');
+        if(contactBtn) {
+            contactBtn.addEventListener('click', () => {
+                alert('Connecting to delivery partner...');
+            });
+        }
+    </script>
+</body></html>

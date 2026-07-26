@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FlavorFlow | Feedback</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#b3c5ff",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#111c2d",
+                    "primary": "#0050cb",
+                    "on-tertiary-container": "#f6f8fa",
+                    "primary-fixed-dim": "#b3c5ff",
+                    "tertiary-container": "#6f7274",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#ecf1ff",
+                    "secondary-container": "#dfe0e0",
+                    "surface-variant": "#d8e3fb",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "outline-variant": "#c2c6d8",
+                    "on-secondary-container": "#616363",
+                    "tertiary-fixed": "#e0e3e5",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#5d5f5f",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "surface-container-highest": "#d8e3fb",
+                    "tertiary": "#565a5b",
+                    "on-secondary-fixed-variant": "#454747",
+                    "secondary-fixed": "#e2e2e2",
+                    "on-primary-fixed": "#001849",
+                    "surface-bright": "#f9f9ff",
+                    "on-background": "#111c2d",
+                    "on-primary-fixed-variant": "#003fa4",
+                    "surface-container": "#e7eeff",
+                    "background": "#f9f9ff",
+                    "outline": "#727687",
+                    "primary-container": "#0066ff",
+                    "on-tertiary-fixed": "#191c1e",
+                    "on-primary-container": "#f8f7ff",
+                    "surface-dim": "#cfdaf2",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#dae1ff",
+                    "surface-tint": "#0054d6",
+                    "surface-container-low": "#f0f3ff",
+                    "on-error-container": "#93000a",
+                    "surface": "#f9f9ff",
+                    "inverse-surface": "#263143",
+                    "error-container": "#ffdad6",
+                    "on-surface-variant": "#424656",
+                    "surface-container-high": "#dee8ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "lg": "32px",
+                    "xs": "8px",
+                    "margin-mobile": "16px",
+                    "xl": "48px",
+                    "md": "24px",
+                    "margin-desktop": "48px",
+                    "sm": "16px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .star-filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        .modal-overlay {
+            background-color: rgba(17, 28, 45, 0.4);
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-surface min-h-screen flex items-center justify-center p-md">
+<!-- TopNavBar (Hidden for Modal focus as per UX Goal) -->
+<!-- The user is in a focused journey (Feedback Modal), Shell is suppressed to prioritize content canvas -->
+<!-- Main Content Canvas -->
+<div class="fixed inset-0 modal-overlay z-10 flex items-center justify-center animate-in fade-in duration-300">
+<!-- Feedback Dialog Card -->
+<div class="bg-surface-container-lowest w-full max-w-lg rounded-xl shadow-xl border border-outline-variant overflow-hidden transform scale-100 transition-transform duration-200">
+<!-- Header Section -->
+<div class="px-lg pt-lg pb-md flex flex-col items-center text-center">
+<div class="mb-md w-16 h-16 bg-primary-fixed flex items-center justify-center rounded-full text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-[32px]">rate_review</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Share your experience</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
+                    How was your FlavorFlow experience today? Your feedback helps us maintain our premium logistics standard.
+                </p>
+</div>
+<form class="px-lg pb-lg" id="feedbackForm">
+<!-- Rating Component -->
+<div class="flex flex-col items-center gap-xs mb-lg">
+<span class="font-label-md text-label-md text-on-surface-variant">Tap to rate</span>
+<div class="flex gap-xs" id="starContainer">
+<button class="star-btn transition-transform active:scale-90 text-primary-container" data-rating="1" type="button">
+<span class="material-symbols-outlined text-[40px]">star</span>
+</button>
+<button class="star-btn transition-transform active:scale-90 text-primary-container" data-rating="2" type="button">
+<span class="material-symbols-outlined text-[40px]">star</span>
+</button>
+<button class="star-btn transition-transform active:scale-90 text-primary-container" data-rating="3" type="button">
+<span class="material-symbols-outlined text-[40px]">star</span>
+</button>
+<button class="star-btn transition-transform active:scale-90 text-primary-container" data-rating="4" type="button">
+<span class="material-symbols-outlined text-[40px]">star</span>
+</button>
+<button class="star-btn transition-transform active:scale-90 text-primary-container" data-rating="5" type="button">
+<span class="material-symbols-outlined text-[40px]">star</span>
+</button>
+</div>
+</div>
+<!-- Text Area for Comments -->
+<div class="space-y-xs mb-xl">
+<label class="font-label-md text-label-md text-on-surface-variant block" for="comments">
+                        Tell us more (Optional)
+                    </label>
+<textarea class="w-full bg-surface border border-outline-variant rounded-lg p-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all font-body-md text-body-md placeholder:text-outline outline-none resize-none" id="comments" name="comments" placeholder="What did you enjoy? What could we improve?" rows="4"></textarea>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row gap-sm items-center">
+<button class="w-full sm:w-1/3 py-sm px-md text-primary font-label-md text-label-md hover:bg-surface-container transition-colors rounded-lg active:scale-95" type="button">
+                        Cancel
+                    </button>
+<button class="w-full sm:w-2/3 py-sm px-md bg-primary-container text-on-primary-container font-label-md text-label-md rounded-lg shadow-sm hover:shadow-md transition-all active:scale-95" type="submit">
+                        Submit Feedback
+                    </button>
+</div>
+</form>
+<!-- Branding Subtle -->
+<div class="px-lg py-sm bg-surface-container-low border-t border-outline-variant flex justify-center items-center gap-xs">
+<span class="font-headline-md text-label-sm text-primary tracking-tight">FlavorFlow</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Premium Logistics</span>
+</div>
+</div>
+</div>
+<!-- Success Toast (Hidden by default) -->
+<div class="fixed bottom-lg left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-md py-sm rounded-lg shadow-xl flex items-center gap-sm opacity-0 pointer-events-none transition-opacity duration-300 z-50" id="successToast">
+<span class="material-symbols-outlined text-primary-fixed">check_circle</span>
+<span class="font-label-md text-label-md">Thank you for your feedback!</span>
+</div>
+<script>
+        // Star Rating Logic
+        const starContainer = document.getElementById('starContainer');
+        const stars = starContainer.querySelectorAll('.star-btn');
+        let currentRating = 0;
+
+        stars.forEach((star, index) => {
+            // Hover states
+            star.addEventListener('mouseenter', () => {
+                updateStars(index + 1);
+            });
+
+            star.addEventListener('mouseleave', () => {
+                updateStars(currentRating);
+            });
+
+            // Click interaction
+            star.addEventListener('click', () => {
+                currentRating = index + 1;
+                updateStars(currentRating);
+                // Micro-animation trigger
+                star.classList.add('scale-125');
+                setTimeout(() => star.classList.remove('scale-125'), 150);
+            });
+        });
+
+        function updateStars(rating) {
+            stars.forEach((star, index) => {
+                const icon = star.querySelector('.material-symbols-outlined');
+                if (index < rating) {
+                    icon.style.fontVariationSettings = "'FILL' 1";
+                    star.classList.add('text-primary-container');
+                    star.classList.remove('text-outline-variant');
+                } else {
+                    icon.style.fontVariationSettings = "'FILL' 0";
+                    star.classList.remove('text-primary-container');
+                    star.classList.add('text-outline-variant');
+                }
+            });
+        }
+
+        // Form Submission Simulation
+        const form = document.getElementById('feedbackForm');
+        const toast = document.getElementById('successToast');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Show toast
+            toast.classList.remove('opacity-0', 'pointer-events-none');
+            toast.classList.add('opacity-100');
+            
+            // Close dialog animation
+            const modal = document.querySelector('.bg-surface-container-lowest');
+            modal.classList.add('scale-95', 'opacity-50');
+            
+            setTimeout(() => {
+                toast.classList.add('opacity-0');
+                toast.classList.remove('opacity-100');
+                // In a real app, we would redirect or clear the modal here
+            }, 3000);
+        });
+    </script>
+</body></html>
