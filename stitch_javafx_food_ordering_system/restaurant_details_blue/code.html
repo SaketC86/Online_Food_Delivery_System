@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Golden Saffron | FlavorFlow Premium Logistics</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#b3c5ff",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#111c2d",
+                    "primary": "#0050cb",
+                    "on-tertiary-container": "#f6f8fa",
+                    "primary-fixed-dim": "#b3c5ff",
+                    "tertiary-container": "#6f7274",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#ecf1ff",
+                    "secondary-container": "#dfe0e0",
+                    "surface-variant": "#d8e3fb",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "outline-variant": "#c2c6d8",
+                    "on-secondary-container": "#616363",
+                    "tertiary-fixed": "#e0e3e5",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#5d5f5f",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "surface-container-highest": "#d8e3fb",
+                    "tertiary": "#565a5b",
+                    "on-secondary-fixed-variant": "#454747",
+                    "secondary-fixed": "#e2e2e2",
+                    "on-primary-fixed": "#001849",
+                    "surface-bright": "#f9f9ff",
+                    "on-background": "#111c2d",
+                    "on-primary-fixed-variant": "#003fa4",
+                    "surface-container": "#e7eeff",
+                    "background": "#f9f9ff",
+                    "outline": "#727687",
+                    "primary-container": "#0066ff",
+                    "on-tertiary-fixed": "#191c1e",
+                    "on-primary-container": "#f8f7ff",
+                    "surface-dim": "#cfdaf2",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#dae1ff",
+                    "surface-tint": "#0054d6",
+                    "surface-container-low": "#f0f3ff",
+                    "on-error-container": "#93000a",
+                    "surface": "#f9f9ff",
+                    "inverse-surface": "#263143",
+                    "error-container": "#ffdad6",
+                    "on-surface-variant": "#424656",
+                    "surface-container-high": "#dee8ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "lg": "32px",
+                    "xs": "8px",
+                    "margin-mobile": "16px",
+                    "xl": "48px",
+                    "md": "24px",
+                    "margin-desktop": "48px",
+                    "sm": "16px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .filled { font-variation-settings: 'FILL' 1; }
+        
+        /* Custom scroll behavior for category nav */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .food-card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 80, 203, 0.08);
+            border-color: #0066ff;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky z-50 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none transition-all">
+<div class="flex justify-between items-center px-lg py-sm max-w-7xl mx-auto w-full">
+<div class="flex items-center gap-md">
+<span class="text-headline-md font-headline-md text-primary dark:text-inverse-primary tracking-tight">FlavorFlow</span>
+<div class="hidden md:flex items-center bg-surface-container px-sm py-xs rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant mr-xs">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-md w-64" placeholder="Search dishes..." type="text"/>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="font-body-md text-body-md text-primary dark:text-inverse-primary font-semibold border-b-2 border-primary py-xs" href="#">Explore</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-on-surface-variant transition-colors px-xs py-base rounded" href="#">Orders</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-on-surface-variant transition-colors px-xs py-base rounded" href="#">Support</a>
+</nav>
+<div class="flex items-center gap-sm">
+<button class="p-xs rounded-full hover:bg-surface-container transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary">location_on</span>
+</button>
+<button class="p-xs rounded-full hover:bg-surface-container transition-colors active:scale-95 duration-150 relative">
+<span class="material-symbols-outlined text-primary">shopping_cart</span>
+<span class="absolute top-0 right-0 bg-error text-on-error text-[10px] w-4 h-4 flex items-center justify-center rounded-full">2</span>
+</button>
+<button class="p-xs rounded-full hover:bg-surface-container transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto pb-xl">
+<!-- Hero Header -->
+<section class="relative w-full h-[400px] md:h-[500px] overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent z-10"></div>
+<img class="w-full h-full object-cover" data-alt="A luxurious high-angle professional food photography shot of a Persian dining table. The centerpiece is a golden saffron-infused rice dish decorated with barberries and nuts, surrounded by smaller plates of appetizers like hummus and grilled meats. Warm, ambient restaurant lighting creates a sophisticated and appetizing mood with soft highlights and deep shadows. Professional corporate modern aesthetic with rich colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUCkVi0BDl0eRO4ZJam-Cjnr3rRoiu5mzZE0L_6Pp8UQEs9Lg1lQ_8XwEF1SsY_hC5JpYjib8h68MWUG5wrQepmcrJ5vC0oKsJEbTeY4cOsqa5oqPQQSVqMv7PHJYRkAAndsOm0OnyOEBJ9_Lqm8KTdGhI_uKNhu9jgVA6oWWlY-VNnpUQgT-sGNju562Reayj2AeP4aKiyZGKumaBms0ic6M9e8lZZrNzeN3s2OdYG-NkYUcdYUaTIRxJRcc25nTOPg2hZeTJRfd3"/>
+<div class="absolute bottom-0 left-0 w-full p-lg z-20 text-on-primary-container">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<div class="flex items-center gap-xs mb-xs">
+<span class="bg-primary-container text-on-primary-container px-sm py-base rounded-full font-label-sm text-label-sm">Premium Logistics Partner</span>
+<span class="bg-secondary-container text-on-secondary-container px-sm py-base rounded-full font-label-sm text-label-sm">Persian Cuisine</span>
+</div>
+<h1 class="font-display-lg text-display-lg mb-xs">The Golden Saffron</h1>
+<p class="font-body-lg text-body-lg text-surface-container-lowest/90 max-w-2xl">Authentic flavors crafted with precision. Experience the finest Persian culinary traditions delivered with logistics excellence.</p>
+</div>
+<div class="flex gap-sm">
+<div class="bg-white/10 backdrop-blur-md border border-white/20 p-md rounded-xl text-center min-w-[100px]">
+<div class="flex items-center justify-center gap-xs text-primary-fixed">
+<span class="material-symbols-outlined filled text-xl">star</span>
+<span class="font-headline-md text-headline-md">4.9</span>
+</div>
+<span class="text-label-sm font-label-sm text-surface-container-lowest">2k+ Reviews</span>
+</div>
+<div class="bg-white/10 backdrop-blur-md border border-white/20 p-md rounded-xl text-center min-w-[100px]">
+<div class="flex items-center justify-center gap-xs text-primary-fixed">
+<span class="material-symbols-outlined text-xl">schedule</span>
+<span class="font-headline-md text-headline-md">25-35</span>
+</div>
+<span class="text-label-sm font-label-sm text-surface-container-lowest">Minutes</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Category Sticky Nav -->
+<nav class="sticky top-[64px] bg-surface z-40 border-b border-outline-variant">
+<div class="px-lg flex items-center gap-lg overflow-x-auto hide-scrollbar py-md">
+<a class="flex-shrink-0 font-label-md text-label-md text-primary border-b-2 border-primary pb-base transition-all" href="#starters">Starters</a>
+<a class="flex-shrink-0 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-base" href="#mains">Mains &amp; Kababs</a>
+<a class="flex-shrink-0 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-base" href="#stews">Traditional Stews</a>
+<a class="flex-shrink-0 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-base" href="#sides">Sides &amp; Rice</a>
+<a class="flex-shrink-0 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-base" href="#drinks">Beverages</a>
+<a class="flex-shrink-0 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors pb-base" href="#desserts">Desserts</a>
+</div>
+</nav>
+<!-- Menu Content -->
+<div class="px-lg mt-xl grid grid-cols-1 lg:grid-cols-12 gap-xl">
+<!-- Items Grid -->
+<div class="lg:col-span-8 space-y-xl">
+<!-- Starters Section -->
+<section id="starters">
+<h2 class="font-headline-lg text-headline-lg mb-lg text-on-surface">Starters</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Card 1 -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden food-card-hover transition-all flex flex-col">
+<img class="w-full h-48 object-cover" data-alt="A close-up shot of a creamy Hummus plate drizzled with golden olive oil and sprinkled with paprika and fresh parsley. Served in a minimalist white ceramic bowl on a clean, light-colored background. Bright, high-key lighting emphasizing the smooth texture of the dip. Professional corporate modern food styling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgHh8bks5CAjHT0CzIV2hkzfeKugKZqYIQVzx3G08X0irTePnBapf0SZRlPgZQ0LwnqdedwjDFwHTWkzwN-ri-PmMnqP4Ud9tsL1IDrtYU2KtYTKTIxz33FJcA9bdr8B-kDGNi_YzBWMl-joMoIsz2oK6stiYgFNVAN1ZGELNC2LWRgDeB-DOs1FqWkyqNsNCkwaJXTXHsbz7GkESwUekw_DqShS5Y29ACPBKZlb5JLCdy5ZDcoKvvMB7BGQ0ZTVf4dw9XgQNzt5VN"/>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-headline-md text-headline-md text-on-surface">Signature Hummus</h3>
+<span class="font-headline-md text-headline-md text-primary">$12.00</span>
+</div>
+<p class="text-label-md font-label-md text-on-surface-variant mb-md flex-grow">Chickpeas blended with tahini, lemon juice, and garlic, served with warm pita bread.</p>
+<div class="flex items-center justify-between">
+<span class="bg-surface-container text-on-surface-variant px-xs py-base rounded font-label-sm text-label-sm">Vegan</span>
+<button class="bg-primary-container text-on-primary-container px-md py-xs rounded-lg font-label-md text-label-md hover:bg-primary transition-colors flex items-center gap-xs active:scale-95 duration-150">
+<span class="material-symbols-outlined text-sm">add</span> Add to Cart
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden food-card-hover transition-all flex flex-col">
+<img class="w-full h-48 object-cover" data-alt="Vibrant stuffed grape leaves (Dolma) arranged elegantly on a white rectangular platter. The leaves are glossy and filled with spiced rice and herbs, garnished with lemon slices and pomegranate seeds. Clean, professional studio lighting with a focus on the intricate textures of the vine leaves. Minimalist blue and white palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCX5UBJ2j3phK9bolfvfW1U8Why3lCZGjhg_730uqvXiDULOYwNsZbYzdxtLC_pNCPPH6tBM6F7PQW-HAOWpNqWS9CqYnS4KiGw6XArFocEW5ZElrY4cTa-Qx8ILSsIRjAjK-YcEcjtP4_Cdx8HNAOIyvlkJ0IGiEGtue7u6ZoCOswLV4ZWPJZLZ8N5chS3-3eQ6nufVGl6ZdUgvW3TAJM3SD24ryA1NiKkFkczgCOZXEd_CV3GOFEzRrFL5ZKG91Ys62rq3JtwH8jw"/>
+<div class="p-md flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-xs">
+<h3 class="font-headline-md text-headline-md text-on-surface">Dolma Platter</h3>
+<span class="font-headline-md text-headline-md text-primary">$14.50</span>
+</div>
+<p class="text-label-md font-label-md text-on-surface-variant mb-md flex-grow">Hand-rolled grape leaves stuffed with rice, aromatic herbs, and split peas.</p>
+<div class="flex items-center justify-between">
+<span class="bg-surface-container text-on-surface-variant px-xs py-base rounded font-label-sm text-label-sm">Popular</span>
+<button class="bg-primary-container text-on-primary-container px-md py-xs rounded-lg font-label-md text-label-md hover:bg-primary transition-colors flex items-center gap-xs active:scale-95 duration-150">
+<span class="material-symbols-outlined text-sm">add</span> Add to Cart
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Mains Section -->
+<section id="mains">
+<h2 class="font-headline-lg text-headline-lg mb-lg text-on-surface">Mains &amp; Kababs</h2>
+<div class="space-y-md">
+<!-- Bento Style Highlight Card -->
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden food-card-hover transition-all flex flex-col md:flex-row h-auto md:h-64">
+<div class="md:w-2/5">
+<img class="w-full h-full object-cover" data-alt="Exquisite Saffron Chicken Kabab (Joojeh) served with a long mound of fluffy basmati rice topped with vibrant yellow saffron rice. A grilled tomato and lemon wedge sit on the side of a modern navy blue plate. The chicken is perfectly charred and glistening. Sophisticated lighting with a clean, airy background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtuzvi6wZlH_bZ6TyUQ8XzS3uh3xuPZCV8YTn5R6N8n9UIVmax77TloRJFUhWVaHlIFpNXrAPAKSnSvQIIwulGDqK5Art-8e96DK7Mhhf114BTbQ5apCMYqIGNXEthG27m_lKi8X8pHRVzaKMV_0jjOD2-KlHD8mZjYCibLEiFIK0BYqz9U0WkNCb2VCGVTkgz3AlKEqlZDImzyKzPA4ef2Wv2p7CfbIE59jyDpAQb7yFQ5cVr4DbQ7-uXaka4XTqs4jUJSR7d-Pip"/>
+</div>
+<div class="p-lg md:w-3/5 flex flex-col justify-center">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Saffron Chicken Kabab</h3>
+<div class="flex gap-xs mt-base">
+<span class="bg-primary/10 text-primary px-xs py-base rounded font-label-sm text-label-sm">Chef's Choice</span>
+<span class="bg-primary/10 text-primary px-xs py-base rounded font-label-sm text-label-sm">Gluten-Free</span>
+</div>
+</div>
+<span class="font-headline-lg text-headline-lg text-primary">$24.95</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mb-lg">Tender chicken breast marinated in saffron, lemon, and onions, grilled to perfection. Served with aromatic basmati rice.</p>
+<button class="w-full md:w-fit bg-primary-container text-on-primary-container px-xl py-sm rounded-lg font-headline-md text-headline-md hover:bg-primary transition-colors flex items-center justify-center gap-sm active:scale-95 duration-150">
+<span class="material-symbols-outlined">shopping_bag</span> Add to Cart
+                                </button>
+</div>
+</div>
+<!-- Regular Cards for Mains -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden food-card-hover transition-all p-md flex gap-md">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Succulent Lamb Koobideh Kabab strips on a minimalist white plate with charred vegetables. High-end food styling, clean shadows, blue accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHJZENkiNLVQIf1TdDrr3gfvq0Nc4Nmr2UN4-kQ5zj5MKMYrPIKO1uR8gXrAIus_MYM69MwpB8DVQFaSMKCISqELN9fxB8PjodzFadl_yk9mnuh7kch7HOpTdVX1ogeMCkRqVMsGUTSuyc8ZhiXR1bP_GShb-bo_mlbhhKt5jAucg383H4TurkJEo_mpkx9ab5RszxL_-6Uuy0iPyR3jOSxQJQWNCd4D-C_hGL7gRv-nUr2ntiP9xHOH1xv6JEO13ecXqaFNESh9R0"/>
+</div>
+<div class="flex-grow flex flex-col">
+<h3 class="font-headline-md text-headline-md">Lamb Koobideh</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant mb-xs">Two skewers of seasoned ground lamb.</p>
+<div class="mt-auto flex justify-between items-center">
+<span class="font-headline-md text-headline-md text-primary">$21.00</span>
+<button class="bg-surface-container-high text-primary p-xs rounded-full hover:bg-primary-container hover:text-on-primary-container transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant rounded-xl overflow-hidden food-card-hover transition-all p-md flex gap-md">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A plate of traditional Ghormeh Sabzi stew with deep green herbs, kidney beans, and tender meat chunks. Clean plating, bright lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALYFfNjBtIGFVV5GvPxNf2f_59xaxXJbt6ZBxKM-otH5BMIYhfuEDhymHHWnae4K7LkwfyazAbCoOPQ0KbBfRwvVw9dRmOURPcSL5_9K2IO6fsCllDtCF8UUgUj5kbJAnLtHJPd-1N7vGexBcyBNBVTlA37xyQCXWNbe4pRBfEaijczuykzlk5Y-_TRNS06wFyE2J64SnKWMia_-4u6L65CVLjK2Hm_Y1JqT4nEaNA_ZNMZDTcJ2e-nGNI7W2pYRrEp4pPIqgC9zpN"/>
+</div>
+<div class="flex-grow flex flex-col">
+<h3 class="font-headline-md text-headline-md">Ghormeh Sabzi</h3>
+<p class="text-label-sm font-label-sm text-on-surface-variant mb-xs">Herb stew with kidney beans and lamb.</p>
+<div class="mt-auto flex justify-between items-center">
+<span class="font-headline-md text-headline-md text-primary">$19.50</span>
+<button class="bg-surface-container-high text-primary p-xs rounded-full hover:bg-primary-container hover:text-on-primary-container transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sidebar / Cart Summary -->
+<aside class="lg:col-span-4 h-fit sticky top-[144px]">
+<div class="bg-surface-container-low rounded-xl border border-outline-variant p-lg shadow-sm">
+<h2 class="font-headline-md text-headline-md mb-md text-on-surface border-b border-outline-variant pb-sm">Your Order</h2>
+<div class="space-y-md mb-lg">
+<div class="flex justify-between items-center">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md">Signature Hummus</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">x 1</span>
+</div>
+<span class="font-label-md text-label-md">$12.00</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md">Saffron Chicken Kabab</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">x 1</span>
+</div>
+<span class="font-label-md text-label-md">$24.95</span>
+</div>
+</div>
+<div class="space-y-xs pt-md border-t border-outline-variant mb-lg">
+<div class="flex justify-between text-label-md text-on-surface-variant">
+<span>Subtotal</span>
+<span>$36.95</span>
+</div>
+<div class="flex justify-between text-label-md text-on-surface-variant">
+<span>Delivery Fee</span>
+<span>$2.99</span>
+</div>
+<div class="flex justify-between font-headline-md text-headline-md text-on-surface mt-sm">
+<span>Total</span>
+<span>$39.94</span>
+</div>
+</div>
+<button class="w-full bg-primary py-md rounded-xl text-on-primary font-headline-md text-headline-md shadow-lg shadow-primary/20 hover:bg-primary-fixed-variant transition-all active:scale-[0.98]">
+                        Proceed to Checkout
+                    </button>
+<p class="text-[10px] text-center mt-md text-on-surface-variant/70 uppercase tracking-widest font-bold">
+                        Powered by FlavorFlow Logistics
+                    </p>
+</div>
+<!-- Logistics Info -->
+<div class="mt-md bg-white border border-outline-variant rounded-xl p-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 bg-primary-container rounded-full flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Precision Delivery</p>
+<p class="text-label-md font-label-md text-primary font-bold">Arriving in 32 mins</p>
+</div>
+</div>
+<div class="mt-md w-full bg-surface-container h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-1/3 rounded-full"></div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant dark:border-outline py-md">
+<div class="flex flex-col md:flex-row justify-between items-center px-lg max-w-7xl mx-auto w-full gap-md">
+<div class="flex items-center gap-sm">
+<span class="text-label-md font-headline-md text-on-surface dark:text-inverse-on-surface">FlavorFlow</span>
+<span class="text-on-surface-variant/40">|</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant">© 2024 FlavorFlow Logistics. All rights reserved.</p>
+</div>
+<div class="flex items-center gap-lg">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary transition-opacity" href="#">About Us</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary transition-opacity" href="#">Delivery Partners</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary transition-opacity" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-surface-variant hover:text-primary transition-opacity" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<!-- FAB for quick cart on mobile -->
+<button class="md:hidden fixed bottom-md right-md bg-primary-container text-on-primary-container w-14 h-14 rounded-full shadow-xl flex items-center justify-center z-50 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">shopping_basket</span>
+<span class="absolute -top-1 -right-1 bg-error text-on-error text-[10px] w-5 h-5 flex items-center justify-center rounded-full border-2 border-white">2</span>
+</button>
+<script>
+        // Simple scroll behavior for category links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const offset = 140; // Sticky header height
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+
+                // Update active state
+                document.querySelectorAll('nav a').forEach(a => {
+                    a.classList.remove('text-primary', 'border-b-2', 'border-primary');
+                    a.classList.add('text-on-surface-variant');
+                });
+                this.classList.add('text-primary', 'border-b-2', 'border-primary');
+                this.classList.remove('text-on-surface-variant');
+            });
+        });
+
+        // Sticky shadow on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>

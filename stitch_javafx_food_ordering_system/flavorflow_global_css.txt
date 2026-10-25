@@ -1,0 +1,80 @@
+/* FlavorFlow Global CSS - JavaFX-inspired Desktop Styles */
+
+:root {
+  --primary-color: #FF6B35;
+  --secondary-color: #FFFFFF;
+  --bg-light: #F8F9FB;
+  --bg-dark: #374151;
+  --text-main: #1F2937;
+  --text-muted: #6B7280;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-main);
+  margin: 0;
+}
+
+.card {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: var(--radius-md);
+  padding: 10px 20px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #E85A2A;
+}
+
+.sidebar {
+  background-color: white;
+  border-right: 1px solid #E5E7EB;
+  padding: 24px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.nav-item.active {
+  background-color: #FFF2EE;
+  color: var(--primary-color);
+}
+
+.input-field {
+  border: 1px solid #D1D5DB;
+  border-radius: var(--radius-md);
+  padding: 12px;
+  width: 100%;
+}
+
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Confirmed | FlavorFlow</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#b3c5ff",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#111c2d",
+                        "primary": "#0050cb",
+                        "on-tertiary-container": "#f6f8fa",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "tertiary-container": "#6f7274",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#ecf1ff",
+                        "secondary-container": "#dfe0e0",
+                        "surface-variant": "#d8e3fb",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "outline-variant": "#c2c6d8",
+                        "on-secondary-container": "#616363",
+                        "tertiary-fixed": "#e0e3e5",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#5d5f5f",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "surface-container-highest": "#d8e3fb",
+                        "tertiary": "#565a5b",
+                        "on-secondary-fixed-variant": "#454747",
+                        "secondary-fixed": "#e2e2e2",
+                        "on-primary-fixed": "#001849",
+                        "surface-bright": "#f9f9ff",
+                        "on-background": "#111c2d",
+                        "on-primary-fixed-variant": "#003fa4",
+                        "surface-container": "#e7eeff",
+                        "background": "#f9f9ff",
+                        "outline": "#727687",
+                        "primary-container": "#0066ff",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-primary-container": "#f8f7ff",
+                        "surface-dim": "#cfdaf2",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#dae1ff",
+                        "surface-tint": "#0054d6",
+                        "surface-container-low": "#f0f3ff",
+                        "on-error-container": "#93000a",
+                        "surface": "#f9f9ff",
+                        "inverse-surface": "#263143",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#424656",
+                        "surface-container-high": "#dee8ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "lg": "32px",
+                        "xs": "8px",
+                        "margin-mobile": "16px",
+                        "xl": "48px",
+                        "md": "24px",
+                        "margin-desktop": "48px",
+                        "sm": "16px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9ff;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .success-checkmark {
+            animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+        }
+        @keyframes scaleIn {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .confetti-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center overflow-x-hidden">
+<!-- Main Navigation Shell (Header Hidden for Success Page as per UX Goal) -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-gutter md:px-margin-desktop flex items-center justify-center py-xl relative">
+<!-- Background Animation Layer -->
+<div class="absolute inset-0 z-0 opacity-40">
+
+</div>
+<div class="relative z-10 w-full max-w-2xl">
+<!-- Order Success Card -->
+<div class="bg-surface-container-lowest border border-outline-variant shadow-[0_12px_24px_rgba(0,0,0,0.04)] rounded-xl p-lg md:p-xl flex flex-col items-center text-center">
+<!-- Success Icon -->
+<div class="success-checkmark w-24 h-24 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center mb-md shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[48px]" style="font-variation-settings: 'wght' 700;">check_circle</span>
+</div>
+<!-- Main Headlines -->
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Order Placed Successfully!</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg">Your gourmet experience is being prepared with professional care.</p>
+<!-- Order Specifics Bento Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-sm w-full mb-lg">
+<!-- Order ID Box -->
+<div class="bg-surface-container-low border border-outline-variant/30 p-sm rounded-lg flex flex-col items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-base">Order ID</span>
+<span class="font-headline-md text-headline-md text-primary">#FF-8829410</span>
+</div>
+<!-- Estimated Time Box -->
+<div class="bg-surface-container-low border border-outline-variant/30 p-sm rounded-lg flex flex-col items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-base">Estimated Delivery</span>
+<span class="font-headline-md text-headline-md text-on-surface">25 - 35 mins</span>
+</div>
+</div>
+<!-- Delivery Status Preview (Asymmetric Pattern) -->
+<div class="w-full bg-surface-bright border border-outline-variant/50 rounded-xl overflow-hidden mb-lg">
+<div class="p-sm flex items-center gap-sm">
+<div class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A professional delivery courier wearing a navy blue uniform and a helmet, standing next to a sleek modern electric delivery bike in a clean urban setting. The lighting is bright and airy, reflecting a premium logistics service aesthetic with soft morning sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUKSw3coKwTsfebatYLen1XsEZZ8hmIVZJO89XeQ84u6m55qM_VUYseBkJlmYVHiYRqb8DVu_kfV_QgpYBm-wkepINFeZSo1-3fgAqxd0hQ_bwCRVPowqFB5OcU9nDiy0XWcYgR8TqCokD3mxbneuuCVb9D9NFjcNnaF8HYNRZZaHm-FRFRmD0gyhR9H10gOW0gxWm0uEGp7sc-v9uE8KTffYRWIqVxnSNbZTOLelIosER888mpLwclNERoO2Jx7zF50UADqJlGnNi"/>
+</div>
+<div class="flex-grow text-left">
+<h4 class="font-label-md text-label-md text-on-surface">Driver: Marcus Chen</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Top-rated Logistics Partner</p>
+</div>
+<div class="flex gap-xs">
+<button class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors duration-200">
+<span class="material-symbols-outlined text-[20px]">call</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors duration-200">
+<span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+</button>
+</div>
+</div>
+<!-- Progress Tracker Component -->
+<div class="px-sm pb-sm pt-xs">
+<div class="flex items-center gap-xs mb-xs">
+<div class="h-1.5 flex-grow bg-primary rounded-full"></div>
+<div class="h-1.5 flex-grow bg-outline-variant rounded-full"></div>
+<div class="h-1.5 flex-grow bg-outline-variant rounded-full"></div>
+<div class="h-1.5 flex-grow bg-outline-variant rounded-full"></div>
+</div>
+<div class="flex justify-between">
+<span class="font-label-sm text-label-sm text-primary">Confirmed</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Preparing</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">On the way</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row gap-sm w-full">
+<button class="flex-1 bg-primary text-on-primary font-label-md text-label-md py-sm px-lg rounded-lg hover:bg-on-primary-fixed-variant transition-all duration-200 shadow-md active:scale-95 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined">map</span>
+                        Track Order
+                    </button>
+<button class="flex-1 bg-surface-container-lowest border border-primary text-primary font-label-md text-label-md py-sm px-lg rounded-lg hover:bg-surface-container-low transition-all duration-200 active:scale-95 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined">receipt_long</span>
+                        View Receipt
+                    </button>
+</div>
+<a class="mt-md font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Return to Dashboard</a>
+</div>
+<!-- Contextual Upsell or Promotion -->
+<div class="mt-lg grid grid-cols-1 md:grid-cols-2 gap-sm">
+<div class="bg-surface-container-low p-sm rounded-xl border border-outline-variant/30 flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[32px]">redeem</span>
+<div class="text-left">
+<p class="font-label-md text-label-md text-on-surface">Refer a friend</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Get $10 off your next delivery</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-sm rounded-xl border border-outline-variant/30 flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[32px]">verified_user</span>
+<div class="text-left">
+<p class="font-label-md text-label-md text-on-surface">FlavorFlow Care</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Insured for your safety</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Navigation suppressed for focused transactional screen as per The "Destination" Rule -->
+<footer class="w-full bg-surface-container-low border-t border-outline-variant mt-auto">
+<div class="max-w-7xl mx-auto px-lg py-md flex flex-col md:flex-row justify-between items-center gap-sm">
+<span class="font-headline-md text-label-md text-on-surface">FlavorFlow</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 FlavorFlow Logistics. All rights reserved.</p>
+<div class="flex gap-md">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Support</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for the "Track Order" button
+        document.querySelector('button.bg-primary').addEventListener('click', function() {
+            this.classList.add('animate-pulse');
+            setTimeout(() => {
+                this.classList.remove('animate-pulse');
+                alert('Redirecting to live tracking view...');
+            }, 500);
+        });
+
+        // Simple float animation for background cards on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const card = document.querySelector('.bg-surface-container-lowest');
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 50;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 50;
+            card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+
+        // Reset transform on mouse leave
+        document.addEventListener('mouseleave', () => {
+            const card = document.querySelector('.bg-surface-container-lowest');
+            card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+            card.style.transition = 'all 0.5s ease';
+        });
+    </script>
+</body></html>
