@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+<head>
+<link rel="stylesheet" href="global.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FlavorFlow | Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+                        "colors": {
+                    "inverse-primary": "#6ee7b7",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#0b1f16",
+                    "primary": "#047857",
+                    "on-tertiary-container": "#f6f8fa",
+                    "primary-fixed-dim": "#a7f3d0",
+                    "tertiary-container": "#6f7274",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#ecfdf5",
+                    "secondary-container": "#dfe0e0",
+                    "surface-variant": "#d1f0df",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "outline-variant": "#cfe8dc",
+                    "on-secondary-container": "#616363",
+                    "tertiary-fixed": "#e0e3e5",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#5d5f5f",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "surface-container-highest": "#d1f0df",
+                    "tertiary": "#565a5b",
+                    "on-secondary-fixed-variant": "#454747",
+                    "secondary-fixed": "#e2e2e2",
+                    "on-primary-fixed": "#064e3b",
+                    "surface-bright": "#fbfefc",
+                    "on-background": "#0b1f16",
+                    "on-primary-fixed-variant": "#065f46",
+                    "surface-container": "#e8f8ef",
+                    "background": "#f6fbf8",
+                    "outline": "#6b8f7d",
+                    "primary-container": "#059669",
+                    "on-tertiary-fixed": "#191c1e",
+                    "on-primary-container": "#ffffff",
+                    "surface-dim": "#d5e9de",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#d1fae5",
+                    "surface-tint": "#059669",
+                    "surface-container-low": "#f0fdf6",
+                    "on-error-container": "#93000a",
+                    "surface": "#fbfefc",
+                    "inverse-surface": "#0f3d2e",
+                    "error-container": "#ffdad6",
+                    "on-surface-variant": "#4b6b5c",
+                    "surface-container-high": "#dcf5e6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "lg": "32px",
+                    "xs": "8px",
+                    "margin-mobile": "16px",
+                    "xl": "48px",
+                    "md": "24px",
+                    "margin-desktop": "48px",
+                    "sm": "16px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- SideNavBar Integration -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface border-r border-outline-variant flex flex-col p-sm gap-xs z-50 hidden md:flex">
+<div class="px-sm py-md mb-md">
+<h1 class="text-headline-md font-headline-md text-primary">FlavorFlow</h1>
+<p class="text-label-sm text-on-surface-variant">Fastest Local Delivery</p>
+</div>
+<nav class="flex flex-col gap-xs flex-grow">
+<a class="flex items-center gap-sm px-md py-sm bg-primary-container text-on-primary-container rounded-lg transition-all active:translate-x-1 duration-200" href="index.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a onclick="openLatestOrder(event)" class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all active:translate-x-1 duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-md text-label-md">Orders</span>
+
+<a class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:bg-surface-container-high transition-all active:translate-x-1 duration-200 rounded-lg" href="profile.html">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+
+</aside>
+<!-- Main Content Area -->
+<main class="md:ml-64 min-h-screen flex flex-col">
+<!-- TopNavBar Integration -->
+<header class="w-full top-0 sticky z-40 bg-surface shadow-sm border-b border-outline-variant">
+<div class="flex justify-between items-center px-lg py-sm max-w-7xl mx-auto w-full">
+<!-- Search Bar (on_left) -->
+<div class="flex-grow max-w-md relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input id="search" class="w-full pl-10 pr-4 py-2 bg-surface-container border border-outline-variant rounded-full text-body-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder="Search for flavors, restaurants..." type="text"/>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-md">
+<button onclick="chooseAddress()" class="flex items-center gap-xs px-sm py-base text-on-surface-variant hover:bg-surface-container transition-colors rounded-lg">
+<span class="material-symbols-outlined">location_on</span>
+<span id="location-label" class="text-label-md hidden lg:inline">Select address</span>
+</button>
+<div class="flex items-center gap-sm">
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors rounded-full relative">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="cart-count absolute top-1 right-1 w-4 h-4 bg-primary text-[10px] text-white flex items-center justify-center rounded-full font-bold">2</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors rounded-full">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-lg max-w-7xl mx-auto w-full space-y-xl">
+<!-- Hero Bento Section -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-md h-auto md:h-[400px]">
+<div class="md:col-span-8 bg-primary rounded-xl p-xl flex flex-col justify-center relative overflow-hidden group">
+<div class="relative z-10 space-y-md max-w-lg">
+<span class="inline-block bg-white/20 backdrop-blur-md px-sm py-base rounded-full text-white text-label-sm">FASTEST LOCAL DELIVERY</span>
+<h2 class="text-display-lg text-white font-display-lg leading-tight">Get 40% Off your first order.</h2>
+<button class="bg-white text-primary px-xl py-md rounded-lg font-label-md hover:shadow-lg transition-shadow active:scale-95 duration-150">Order Now</button>
+</div>
+<div class="absolute right-0 top-0 h-full w-1/2 opacity-80 group-hover:scale-105 transition-transform duration-700 pointer-events-none">
+<img class="w-full h-full object-cover" data-alt="A top-down professional food photography shot of a vibrant, gourmet salmon bowl with fresh vegetables and seeds. The lighting is crisp and bright, creating a clean light-mode aesthetic against a white marble background. The colors are rich and saturated, emphasizing freshness and high-end logistics service quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLT51sT82wMP4Q619PxnCwMGe1Hc-izEMY-vzEdh1ALyELKNyZGibKCDdnt6-LnW8uddx0ifU7-CA6xArVnriLxlP7rw4XZlumQ9SwkFKFggiSLYdc5xHTSie8HURvDkCzcKwRoMqT254MX_baIngPtr-X5wvQeLWedE6SRmdPuj5JLMZjk3Du9u_9WG1qkbnMPfZcShmWg1a2Qy-zZTqGxRpmDVc5-_E80o-_ed7OSgrZ0cu75xclJkAiaLZUkZpnOXCJ_-qcTErV"/>
+</div>
+</div>
+<div class="md:col-span-4 grid grid-rows-2 gap-md">
+<div class="bg-surface-container-high rounded-xl p-md flex flex-col justify-between border border-outline-variant hover:shadow-md transition-shadow">
+<div>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<h3 class="text-headline-md mt-xs">Fastest Delivery</h3>
+</div>
+<p class="text-body-md text-on-surface-variant">Orders at your door in under 20 minutes.</p>
+</div>
+<div class="bg-inverse-surface text-inverse-on-surface rounded-xl p-md flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<span class="material-symbols-outlined text-inverse-primary" style="font-variation-settings: 'FILL' 1;">stars</span>
+<h3 class="text-headline-md mt-xs">Top Rated</h3>
+</div>
+<p class="text-body-md opacity-80">Only the best curated restaurants for your palate.</p>
+</div>
+</div>
+</section>
+<!-- Categories -->
+<section class="space-y-md">
+<div class="flex justify-between items-end">
+<h2 class="text-headline-lg font-headline-lg">Categories</h2>
+<a class="text-primary text-label-md font-semibold hover:underline" href="#" onclick="event.preventDefault(); filterCategory(null)">View All</a>
+</div>
+<div class="flex gap-md overflow-x-auto pb-sm custom-scrollbar">
+<button data-cat="Pizza" onclick="filterCategory('Pizza', this)" class="flex flex-col items-center gap-xs min-w-[100px] group">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-low border border-outline-variant flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-3xl">local_pizza</span>
+</div>
+<span class="text-label-md font-medium">Pizza</span>
+</button>
+<button data-cat="Burgers" onclick="filterCategory('Burgers', this)" class="flex flex-col items-center gap-xs min-w-[100px] group">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-low border border-outline-variant flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-3xl">lunch_dining</span>
+</div>
+<span class="text-label-md font-medium">Burgers</span>
+</button>
+<button data-cat="Asian" onclick="filterCategory('Asian', this)" class="flex flex-col items-center gap-xs min-w-[100px] group">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-low border border-outline-variant flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-3xl">ramen_dining</span>
+</div>
+<span class="text-label-md font-medium">Asian</span>
+</button>
+<button data-cat="Desserts" onclick="filterCategory('Desserts', this)" class="flex flex-col items-center gap-xs min-w-[100px] group">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-low border border-outline-variant flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-3xl">icecream</span>
+</div>
+<span class="text-label-md font-medium">Desserts</span>
+</button>
+<button data-cat="Coffee" onclick="filterCategory('Coffee', this)" class="flex flex-col items-center gap-xs min-w-[100px] group">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-low border border-outline-variant flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-3xl">local_cafe</span>
+</div>
+<span class="text-label-md font-medium">Coffee</span>
+</button>
+<button data-cat="Healthy" onclick="filterCategory('Healthy', this)" class="flex flex-col items-center gap-xs min-w-[100px] group">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-low border border-outline-variant flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-3xl">restaurant</span>
+</div>
+<span class="text-label-md font-medium">Healthy</span>
+</button>
+<button data-cat="Bakery" onclick="filterCategory('Bakery', this)" class="flex flex-col items-center gap-xs min-w-[100px] group">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-low border border-outline-variant flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-3xl">bakery_dining</span>
+</div>
+<span class="text-label-md font-medium">Bakery</span>
+</button>
+<button data-cat="Drinks" onclick="filterCategory('Drinks', this)" class="flex flex-col items-center gap-xs min-w-[100px] group">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-low border border-outline-variant flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined text-3xl">wine_bar</span>
+</div>
+<span class="text-label-md font-medium">Drinks</span>
+</button>
+</div>
+</section>
+<!-- Featured Restaurants -->
+<section id="featured" class="space-y-md">
+<div class="flex justify-between items-end">
+<h2 id="results-title" class="text-headline-lg font-headline-lg">Featured Restaurants</h2>
+<div class="flex gap-sm">
+<button class="w-10 h-10 border border-outline-variant rounded-full flex items-center justify-center hover:bg-surface-container transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="w-10 h-10 border border-outline-variant rounded-full flex items-center justify-center hover:bg-surface-container transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+<div id="restaurant-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+
+</div>
+</section>
+<!-- Delivery Progress / Status Section (Unique Pattern) -->
+
+</div>
+<!-- Footer Integration -->
+<footer class="w-full mt-auto bg-surface-container-low border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-lg py-md max-w-7xl mx-auto w-full gap-md">
+<div class="flex flex-col items-center md:items-start gap-xs">
+<span class="text-label-md font-headline-md text-on-surface">FlavorFlow</span>
+<p class="text-label-sm text-on-surface-variant">©  FlavorFlow </p>
+</div>
+</div>
+</footer>
+</main>
+<!-- Mobile Navigation (Visible on mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface border-t border-outline-variant flex justify-around items-center py-sm px-md z-50">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="text-[10px] font-medium">Orders</span>
+</a>
+
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Me</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions and Atmospheric Effects
+        document.querySelectorAll('.group').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                // Potential for subtle JS-driven animation adjustments if needed
+            });
+        });
+
+        // Sticky header background shift on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.add('shadow-sm');
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+<script>
+  let allRestaurants = [];
+  let restaurantMenus = {};
+  let activeCategory = null;
+  let searchQuery = '';
+  let savedAddresses = [];
+
+  // Photos per restaurant. Keep your local paths if you have already changed them.
+  const restaurantImages = {
+    'Wood Fire Pizzeria': 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600',
+    'Smokey Grill Burgers': 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600',
+    'Dragon Wok': '',
+    'Sweet Affair Desserts': 'https://images.unsplash.com/photo-1758910536889-43ce7b3199fd?w=600',
+    'Filter Kaapi House': 'https://images.unsplash.com/photo-1758387941825-a6ecaec9c14d?w=600',
+    'Green Bowl Kitchen': 'https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?w=600',
+    'Thrissur Bakers': 'https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=600',
+    'Juice Junction': 'https://images.unsplash.com/photo-1657101455328-6821c90b0ad3?w=600'
+  };
+  const fallbackImages = [
+    'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600',
+    'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600',
+    'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600'
+  ];
+
+  // A restaurant matches a category by cuisine, or by a matching menu item
+  const CATEGORY_RULES = {
+    Pizza:    { cuisines: ['Pizza'],    categories: [],          words: ['pizza'] },
+    Burgers:  { cuisines: ['Burgers'],  categories: [],          words: ['burger'] },
+    Asian:    { cuisines: ['Asian'],    categories: [],          words: ['noodle', 'fried rice', 'momo', 'chilli', 'manchurian', 'hakka'] },
+    Desserts: { cuisines: ['Desserts'], categories: ['dessert'], words: ['kulfi', 'gulab', 'rasmalai', 'brownie', 'pudding', 'cake'] },
+    Coffee:   { cuisines: ['Coffee'],   categories: [],          words: ['coffee', 'chai', 'cappuccino'] },
+    Healthy:  { cuisines: ['Healthy'],  categories: [],          words: ['salad', 'bowl', 'sprouts', 'quinoa'] },
+    Bakery:   { cuisines: ['Bakery'],   categories: [],          words: ['bread', 'croissant', 'puff'] },
+    Drinks:   { cuisines: ['Drinks'],   categories: ['drink'],   words: ['juice', 'lassi', 'soda', 'smoothie', 'coffee', 'chai'] }
+  };
+
+  function escapeHtml(text) {
+    return String(text ?? '').replace(/[&<>"']/g, c => (
+      { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+    ));
+  }
+
+  function restaurantCard(r, index) {
+    const rating = Number(r.rating).toFixed(1);
+    const minOrder = Number(r.min_order).toFixed(0);
+    const img = restaurantImages[r.name] || fallbackImages[index % fallbackImages.length];
+    return `
+      <div onclick="location.href='restaurant.html?id=${r.id}'"
+           class="bg-surface border border-outline-variant rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+        <div class="relative h-48 bg-surface-container-high overflow-hidden">
+          <img class="w-full h-full object-cover" src="${img}" alt="${escapeHtml(r.name)}" loading="lazy">
+          <span class="absolute bottom-3 left-3 bg-on-surface/80 text-white text-label-sm px-sm py-base rounded-md">${escapeHtml(r.delivery_time)}</span>
+          <span class="absolute top-3 right-3 bg-white text-on-surface text-label-sm font-bold px-sm py-base rounded-full shadow-sm">⭐ ${escapeHtml(rating)}</span>
+        </div>
+        <div class="p-sm pt-md space-y-xs">
+          <div class="flex justify-between items-baseline gap-sm">
+            <h3 class="font-headline-md text-headline-md">${escapeHtml(r.name)}</h3>
+            <span class="text-primary font-bold text-label-md whitespace-nowrap">Min ₹${escapeHtml(minOrder)}</span>
+          </div>
+          <p class="text-body-md text-on-surface-variant leading-relaxed">${escapeHtml(r.location)}</p>
+          <span class="self-start bg-surface-container-low text-on-surface-variant px-sm py-base rounded-full text-label-sm border border-outline-variant">${escapeHtml(r.cuisine_type)}</span>
+        </div>
+      </div>`;
+  }
+
+   // Whole-word match, so "chai" does not match inside other words
+  function hasWord(text, word) {
+    return new RegExp('(^|[^a-z])' + word + '([^a-z]|$)', 'i').test(text);
+  }
+
+  function matchesCategory(r, cat) {
+    const rule = CATEGORY_RULES[cat];
+    if (!rule) return true;
+    if (rule.cuisines.includes(r.cuisine_type)) return true;
+    return (restaurantMenus[r.id] || []).some(item => {
+      const name = String(item.name);
+      const category = String(item.category).toLowerCase();
+      return rule.categories.includes(category)
+        || rule.words.some(w => hasWord(name, w));
+    });
+  }
+
+  // Redraws the list for the active category and search text, and updates the heading
+  function renderRestaurants() {
+    const q = searchQuery.trim().toLowerCase();
+    const matches = allRestaurants.filter(r =>
+      (!activeCategory || matchesCategory(r, activeCategory)) &&
+      (!q || String(r.name).toLowerCase().includes(q) || String(r.cuisine_type).toLowerCase().includes(q))
+    );
+
+    let title = 'Featured Restaurants';
+    if (activeCategory) title = activeCategory + ' (' + matches.length + ')';
+    else if (q) title = 'Results for "' + searchQuery.trim() + '" (' + matches.length + ')';
+    document.getElementById('results-title').textContent = title;
+
+    document.getElementById('restaurant-list').innerHTML = matches.length
+      ? matches.map((r, i) => restaurantCard(r, i)).join('')
+      : '<p class="text-body-md text-on-surface-variant col-span-full">No restaurants found.</p>';
+  }
+
+  function scrollToResults() {
+    document.getElementById('featured').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Called by the category buttons. Clicking the active category again clears the filter.
+  function filterCategory(cat, btn) {
+    activeCategory = (activeCategory === cat) ? null : cat;
+    document.querySelectorAll('[data-cat]').forEach(b =>
+      b.classList.remove('ring-2', 'ring-primary', 'rounded-2xl'));
+    if (activeCategory && btn) btn.classList.add('ring-2', 'ring-primary', 'rounded-2xl');
+    renderRestaurants();
+    scrollToResults();
+  }
+
+  // Search: filter as you type, scroll once when typing starts, and scroll on Enter
+  let searchWasEmpty = true;
+  const searchInput = document.getElementById('search');
+  searchInput.addEventListener('input', e => {
+    searchQuery = e.target.value;
+    renderRestaurants();
+    const nowEmpty = !searchQuery.trim();
+    if (searchWasEmpty && !nowEmpty) scrollToResults();
+    searchWasEmpty = nowEmpty;
+  });
+  searchInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') scrollToResults();
+  });
+
+  // Saved address shown in the header
+  function shortLabel(a) {
+    return a.city + (a.address_type ? ' (' + a.address_type + ')' : '');
+  }
+
+  function loadAddresses() {
+    fetch('api/address')
+      .then(res => res.ok ? res.json() : [])
+      .then(list => {
+        savedAddresses = list;
+        document.getElementById('location-label').textContent =
+          list.length ? shortLabel(list[0]) : 'Add address';
+      })
+      .catch(() => {});
+  }
+
+  function chooseAddress() {
+    if (!savedAddresses.length) {
+      location.href = 'profile.html#addresses';
+      return;
+    }
+    const lines = savedAddresses.map((a, i) =>
+      (i + 1) + '. ' + a.street + ', ' + a.city + ' ' + a.pincode + ' (' + a.address_type + ')'
+    ).join('\n');
+    const pick = prompt('Choose your delivery address:\n' + lines + '\n\nEnter a number:', '1');
+    const n = parseInt(pick, 10);
+    if (n >= 1 && n <= savedAddresses.length) {
+      document.getElementById('location-label').textContent = shortLabel(savedAddresses[n - 1]);
+    }
+  }
+
+  // Load restaurants, then each menu, so categories can match menu items
+  function loadAll() {
+    fetch('api/restaurants')
+      .then(res => {
+        if (!res.ok) throw new Error('Server returned ' + res.status);
+        return res.json();
+      })
+      .then(list => {
+        allRestaurants = list;
+        return Promise.all(list.map(r =>
+          fetch('api/menu?restaurant_id=' + r.id)
+            .then(res => res.ok ? res.json() : [])
+            .then(items => { restaurantMenus[r.id] = items; })
+        ));
+      })
+      .then(() => renderRestaurants())
+      .catch(err => {
+        document.getElementById('restaurant-list').innerHTML =
+          '<p class="text-body-md text-error col-span-full">Could not load restaurants: ' + escapeHtml(err.message) + '</p>';
+      });
+  }
+
+  loadAll();
+  loadAddresses();
+</script>
+<script>
+  function escapeRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function hasPhrase(label, phrase) {
+    return new RegExp('(^|\\s)' + escapeRe(phrase) + '($|\\s)').test(label);
+  }
+  function go(page) { return () => { location.href = page; }; }
+  function soon(msg) { return () => alert(msg); }
+
+  // Finds buttons and links by visible text and attaches an action.
+  // Plain "#" links without a rule show "Coming soon".
+  function wireButtons(rules) {
+    document.querySelectorAll('button, a').forEach(el => {
+            if (el.hasAttribute('onclick') || el.getAttribute('type') === 'submit') return;
+      const label = el.textContent.replace(/\s+/g, ' ').trim();
+      const rule = rules.find(([phrase]) => hasPhrase(label, phrase));
+      if (rule) {
+        el.addEventListener('click', e => { e.preventDefault(); rule[1](); });
+      } else if (el.tagName === 'A' && el.getAttribute('href') === '#') {
+        el.addEventListener('click', e => { e.preventDefault(); alert('Coming soon'); });
+      }
+    });
+  }
+    function openLatestOrder(e) {
+    e.preventDefault();
+    fetch('api/customer')
+      .then(res => {
+        if (res.status === 401) { location.href = 'login.html'; return null; }
+        return res.json();
+      })
+      .then(data => {
+        if (!data) return;
+        if (data.orders && data.orders.length) {
+          location.href = 'tracking.html?order_id=' + data.orders[0].order_id;
+        } else {
+          alert('You have no orders yet.');
+        }
+      })
+      .catch(() => alert('Could not load your orders.'));
+  }
+</script>
+<script>
+  wireButtons([
+    ['Order Now', go('restaurant.html')],
+    ['Track Map', go('tracking.html')],
+    ['Order Details', go('tracking.html')],
+    ['chevron_left', soon('More restaurants coming soon')],
+    ['chevron_right', soon('More restaurants coming soon')],
+    ['location_on', soon('Location selection comes later')],
+    ['shopping_cart', go('cart.html')],
+    ['account_circle', go('profile.html')],
+    ['Home', go('index.html')],
+    ['Orders', go('tracking.html')],
+    ['Saved', go('restaurant.html')],
+    ['Me', go('profile.html')],
+  ]);
+</script>
+<script>
+  function updateCartCount() {
+    fetch('api/cart')
+      .then(res => res.ok ? res.json() : null)
+      .then(data => {
+        if (!data) return;
+        document.querySelectorAll('.cart-count').forEach(el => {
+          el.textContent = data.item_count;
+          el.classList.toggle('hidden', data.item_count === 0);
+        });
+      })
+      .catch(() => {});
+  }
+
+  updateCartCount();
+</script>
+</body></html>

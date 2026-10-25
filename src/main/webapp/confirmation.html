@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Confirmed | FlavorFlow</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                                "colors": {
+                    "inverse-primary": "#6ee7b7",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#0b1f16",
+                    "primary": "#047857",
+                    "on-tertiary-container": "#f6f8fa",
+                    "primary-fixed-dim": "#a7f3d0",
+                    "tertiary-container": "#6f7274",
+                    "on-error": "#ffffff",
+                    "inverse-on-surface": "#ecfdf5",
+                    "secondary-container": "#dfe0e0",
+                    "surface-variant": "#d1f0df",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "outline-variant": "#cfe8dc",
+                    "on-secondary-container": "#616363",
+                    "tertiary-fixed": "#e0e3e5",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#5d5f5f",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "surface-container-highest": "#d1f0df",
+                    "tertiary": "#565a5b",
+                    "on-secondary-fixed-variant": "#454747",
+                    "secondary-fixed": "#e2e2e2",
+                    "on-primary-fixed": "#064e3b",
+                    "surface-bright": "#fbfefc",
+                    "on-background": "#0b1f16",
+                    "on-primary-fixed-variant": "#065f46",
+                    "surface-container": "#e8f8ef",
+                    "background": "#f6fbf8",
+                    "outline": "#6b8f7d",
+                    "primary-container": "#059669",
+                    "on-tertiary-fixed": "#191c1e",
+                    "on-primary-container": "#ffffff",
+                    "surface-dim": "#d5e9de",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#d1fae5",
+                    "surface-tint": "#059669",
+                    "surface-container-low": "#f0fdf6",
+                    "on-error-container": "#93000a",
+                    "surface": "#fbfefc",
+                    "inverse-surface": "#0f3d2e",
+                    "error-container": "#ffdad6",
+                    "on-surface-variant": "#4b6b5c",
+                    "surface-container-high": "#dcf5e6"
+            },
+                        
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "lg": "32px",
+                        "xs": "8px",
+                        "margin-mobile": "16px",
+                        "xl": "48px",
+                        "md": "24px",
+                        "margin-desktop": "48px",
+                        "sm": "16px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f6fbf8;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .success-checkmark {
+            animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+        }
+        @keyframes scaleIn {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .confetti-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center overflow-x-hidden">
+<!-- Main Navigation Shell (Header Hidden for Success Page as per UX Goal) -->
+<main class="flex-grow w-full max-w-7xl mx-auto px-gutter md:px-margin-desktop flex items-center justify-center py-xl relative">
+<!-- Background Animation Layer -->
+<div class="absolute inset-0 z-0 opacity-40">
+
+</div>
+<div class="relative z-10 w-full max-w-2xl">
+<!-- Order Success Card -->
+<div class="bg-surface-container-lowest border border-outline-variant shadow-[0_12px_24px_rgba(0,0,0,0.04)] rounded-xl p-lg md:p-xl flex flex-col items-center text-center">
+<!-- Success Icon -->
+<div class="success-checkmark w-24 h-24 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center mb-md shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[48px]" style="font-variation-settings: 'wght' 700;">check_circle</span>
+</div>
+<!-- Main Headlines -->
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Order Placed Successfully!</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg">Your gourmet experience is being prepared with professional care.</p>
+<!-- Order Specifics Bento Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-sm w-full mb-lg">
+<!-- Order ID Box -->
+<div class="bg-surface-container-low border border-outline-variant/30 p-sm rounded-lg flex flex-col items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-base">Order ID</span>
+<span id="order-id" class="font-headline-md text-headline-md text-primary">Loading...</span>
+</div>
+<!-- Estimated Time Box -->
+<div class="bg-surface-container-low border border-outline-variant/30 p-sm rounded-lg flex flex-col items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-base">Estimated Delivery</span>
+<span class="font-headline-md text-headline-md text-on-surface">25 - 35 mins</span>
+</div>
+</div>
+<div id="order-details" class="w-full mb-lg"></div>
+<!-- Delivery Status Preview (Asymmetric Pattern) -->
+<div id="driver-block" class="w-full mb-lg"></div>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row gap-sm w-full">
+<button id="track-btn" class="flex-1 bg-primary text-on-primary font-label-md text-label-md py-sm px-lg rounded-lg hover:bg-on-primary-fixed-variant transition-all duration-200 shadow-md active:scale-95 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined">map</span>
+                        Track Order
+                    </button>
+</div>
+<a class="mt-md font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="index.html">Return to Dashboard</a>
+</div>
+<!-- Contextual Upsell or Promotion -->
+<div class="mt-lg grid grid-cols-1 md:grid-cols-2 gap-sm">
+<div class="bg-surface-container-low p-sm rounded-xl border border-outline-variant/30 flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[32px]">redeem</span>
+<div class="text-left">
+<p class="font-label-md text-label-md text-on-surface">Refer a friend</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Get $10 off your next delivery</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-sm rounded-xl border border-outline-variant/30 flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[32px]">verified_user</span>
+<div class="text-left">
+<p class="font-label-md text-label-md text-on-surface">FlavorFlow Care</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Insured for your safety</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Navigation suppressed for focused transactional screen as per The "Destination" Rule -->
+<footer class="w-full bg-surface-container-low border-t border-outline-variant mt-auto">
+<div class="max-w-7xl mx-auto px-lg py-md flex flex-col md:flex-row justify-between items-center gap-sm">
+<span class="font-headline-md text-label-md text-on-surface">FlavorFlow</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 FlavorFlow . All rights reserved.</p>
+<div class="flex gap-md">
+</div>
+</div>
+</footer>
+<script>
+    fetch('api/session').then(res => {
+  if (res.status === 401) location.href = 'login.html';
+});
+  const params = new URLSearchParams(location.search);
+  const orderId = params.get('order_id');
+
+  function escapeHtml(text) {
+    return String(text ?? '').replace(/[&<>"']/g, c => (
+      { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+    ));
+  }
+
+  function money(n) {
+    return '₹' + Number(n).toFixed(2);
+  }
+
+  function itemRow(item) {
+    return `
+      <div class="flex justify-between text-body-md">
+        <span>${escapeHtml(item.name)} x ${item.quantity}</span>
+        <span>${money(item.unit_price * item.quantity)}</span>
+      </div>`;
+  }
+
+  function renderOrder(o) {
+    document.getElementById('order-id').textContent = '#FF-' + o.order_id;
+
+    document.getElementById('order-details').innerHTML = `
+      <div class="bg-surface-container-low border border-outline-variant/30 p-md rounded-lg text-left space-y-xs">
+        <div class="flex justify-between font-label-md text-label-md">
+          <span>Restaurant</span>
+          <span>${escapeHtml(o.restaurant_name)}</span>
+        </div>
+        <div class="flex justify-between font-label-md text-label-md">
+          <span>Payment</span>
+          <span>${escapeHtml(o.payment_method)} (${escapeHtml(o.payment_status)})</span>
+        </div>
+        <div class="flex justify-between font-label-md text-label-md">
+          <span>Status</span>
+          <span>${escapeHtml(o.status)}</span>
+        </div>
+        <div class="border-t border-outline-variant pt-sm space-y-xs">
+          ${o.items.map(itemRow).join('')}
+        </div>
+        <div class="flex justify-between font-headline-md text-headline-md border-t border-outline-variant pt-sm">
+          <span>Total</span>
+          <span>${money(o.total)}</span>
+        </div>
+      </div>`;
+
+    document.getElementById('track-btn').onclick = () => {
+      location.href = 'tracking.html?order_id=' + encodeURIComponent(o.order_id);
+    };
+  }
+    const STATUS_STEPS = ['Placed', 'Preparing', 'Out-for-delivery', 'Delivered'];
+  const STATUS_LABELS = ['Confirmed', 'Preparing', 'On the way', 'Delivered'];
+
+  function driverBlockHtml(t) {
+    const idx = STATUS_STEPS.indexOf(t.status);
+    const bars = STATUS_STEPS.map((_, i) =>
+      `<div class="h-1.5 flex-grow rounded-full ${i <= idx ? 'bg-primary' : 'bg-outline-variant'}"></div>`
+    ).join('');
+    const labels = STATUS_LABELS.map((label, i) =>
+      `<span class="font-label-sm text-label-sm ${i === idx ? 'text-primary' : 'text-on-surface-variant'}">${label}</span>`
+    ).join('');
+
+    let driver;
+    if (t.agent) {
+      driver = `
+        <div class="flex-grow text-left">
+          <h4 class="font-label-md text-label-md text-on-surface">Driver: ${escapeHtml(t.agent.name)}</h4>
+          <p class="font-label-sm text-label-sm text-on-surface-variant">${escapeHtml(t.agent.vehicle_no)}</p>
+        </div>`;
+    } else {
+      driver = `
+        <div class="flex-grow text-left">
+          <h4 class="font-label-md text-label-md text-on-surface">Driver not assigned yet</h4>
+          <p class="font-label-sm text-label-sm text-on-surface-variant">A driver will be assigned shortly</p>
+        </div>`;
+    }
+
+    const statusText = idx >= 0 ? STATUS_LABELS[idx] : t.status;
+
+    return `
+      <div class="w-full bg-surface-bright border border-outline-variant/50 rounded-xl overflow-hidden">
+        <div class="p-sm flex items-center gap-sm">
+          <div class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary flex-shrink-0">
+            <span class="material-symbols-outlined">delivery_dining</span>
+          </div>
+          ${driver}
+        </div>
+        <div class="px-sm pb-sm pt-xs">
+          <p class="font-label-sm text-label-sm text-on-surface mb-xs">Status: ${escapeHtml(statusText)}</p>
+          <div class="flex items-center gap-xs mb-xs">${bars}</div>
+          <div class="flex justify-between">${labels}</div>
+        </div>
+      </div>`;
+  }
+
+  function loadDriver() {
+    if (!orderId) return;
+    fetch('api/tracking?order_id=' + encodeURIComponent(orderId))
+      .then(res => res.ok ? res.json() : null)
+      .then(t => {
+        if (t) document.getElementById('driver-block').innerHTML = driverBlockHtml(t);
+      })
+      .catch(() => {});
+  }
+
+
+
+  if (!orderId) {
+    document.getElementById('order-id').textContent = 'Unknown';
+    document.getElementById('order-details').innerHTML =
+      '<p class="text-on-surface-variant">No order was selected.</p>';
+  } else {
+    fetch('api/order?order_id=' + encodeURIComponent(orderId))
+      .then(res => res.json().then(body => ({ ok: res.ok, body })))
+      .then(({ ok, body }) => {
+                
+        if (!ok) throw new Error(body.error || 'Could not load order');
+        renderOrder(body);
+        loadDriver();
+        renderOrder(body);
+      })
+      .catch(err => {
+        document.getElementById('order-id').textContent = 'Error';
+        document.getElementById('order-details').innerHTML =
+          '<p class="text-error">' + escapeHtml(err.message) + '</p>';
+      });
+  }
+    if (orderId) setInterval(loadDriver, 15000);
+</script>
+<script>
+  function escapeRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  function hasPhrase(label, phrase) {
+    return new RegExp('(^|\\s)' + escapeRe(phrase) + '($|\\s)').test(label);
+  }
+  function go(page) { return () => { location.href = page; }; }
+  function soon(msg) { return () => alert(msg); }
+
+  // Finds buttons and links by visible text and attaches an action.
+  // Plain "#" links without a rule show "Coming soon".
+  function wireButtons(rules) {
+    document.querySelectorAll('button, a').forEach(el => {
+            if (el.hasAttribute('onclick') || el.getAttribute('type') === 'submit') return;
+      const label = el.textContent.replace(/\s+/g, ' ').trim();
+      const rule = rules.find(([phrase]) => hasPhrase(label, phrase));
+      if (rule) {
+        el.addEventListener('click', e => { e.preventDefault(); rule[1](); });
+      } else if (el.tagName === 'A' && el.getAttribute('href') === '#') {
+        el.addEventListener('click', e => { e.preventDefault(); alert('Coming soon'); });
+      }
+    });
+  }
+</script>
+<script>
+  wireButtons([]);
+</script>
+</body></html>
